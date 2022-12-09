@@ -8,6 +8,7 @@ const loadDynamicScript = url => {
     if (!url) return;
   
     if (urlCache.has(url)) {
+        console.log('inside url cache ----- '. url)
       return new Promise(true)
     }
     return new Promise((resolve, reject) => {
@@ -35,7 +36,10 @@ const loadDynamicScript = url => {
   
     const cachedModule = cache[key];
     // already loaded previously
-    if (cachedModule) return cachedModule;
+    if (cachedModule) {
+        console.log('Returning a cached module from useSuspend', cachedModule)
+        return cachedModule;
+    }
     if (errorsCache[key]) throw errorsCache[importPath];
   
     throw loadDynamicScript(remoteUrl, React).then(() => loadComponent(scope, module)())
