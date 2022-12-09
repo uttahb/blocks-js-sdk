@@ -1,5 +1,6 @@
 import { loadComponent } from './utils'
 
+console.log('initing useSuspense......')
 const cache = {};
 const errorsCache = {};
 const urlCache = new Set();
